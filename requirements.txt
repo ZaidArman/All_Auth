@@ -1,0 +1,12 @@
+pillow
+oauthlib
+django-crispy-forms
+django-allauth
+django
+chardet
+certifi
+pytz
+sqlparse
+urllib3
+pip
+requests
