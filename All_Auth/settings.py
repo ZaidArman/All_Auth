@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     
     # facebook Auth
     'allauth.socialaccount.providers.facebook',
+    
+    # Apple Auth
+    'allauth.socialaccount.providers.apple',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +151,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 """Google"""
 # client_ID = 113799018764-slrgqr9j42vsd7lsltvbtrrd75c1sh2p.apps.googleusercontent.com
 # Client_Secret = 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
@@ -204,4 +209,32 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False, 
         'VERSION': 'v2.4'
         },
+    
+    # Apple
+    "apple": {
+        "APP": {
+            # Your service identifier (Bundle ID).
+            "client_id": "com.makeyourplank",
+            
+            # The Key ID (visible in the "View Key Details" page).
+            "secret": "49H7SA6VU2",
+            
+             # Member ID/App ID Prefix -- you can find it below your name
+             # at the top right corner of the page, or it’s your App ID
+             # Prefix in your App ID.
+            "key": "LFF95AFMZL",
+            
+            "settings": {
+                # The private key you downloaded when generating the key.
+                "certificate_key": """-----BEGIN PRIVATE KEY-----
+MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgRtLn+qnJaeFkcRQ8
+iQLWzAC0ymPJczSTPIHcDvX29XOgCgYIKoZIzj0DAQehRANCAAQr0A+v/B6xVcBB
+xxecNWUKQShgbQBoRGdnUiuAzQzK+IpQzEky0IV0vWLSJ1kE1gXykWbrMok++9xG
+UmjZVLvK
+-----END PRIVATE KEY-----"""
+            },
+            
+            'redirect_uri': 'http://domain.com/accounts/apple/login/callback/',
+        }
+    },
 }
