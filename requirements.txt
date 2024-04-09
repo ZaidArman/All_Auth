@@ -10,3 +10,4 @@ sqlparse
 urllib3
 pip
 requests
+dj-rest-auth

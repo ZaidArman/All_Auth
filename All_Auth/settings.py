@@ -14,10 +14,8 @@ SECRET_KEY = "django-insecure-@xuqxjbnnew=e9@3g&8nhxp=ykvn9^^ne0qg1a@3s9*j3m6!#o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 # site id
-SITE_ID =2
+SITE_ID = 1
 
 
 # Application definition
@@ -29,6 +27,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    # 'rest_framework',
+    # 'rest_framework.authtoken',
+    # 'dj_rest_auth',
+    # 'dj_rest_auth.registration',
     
     # all auth
     'allauth',
@@ -46,6 +49,9 @@ INSTALLED_APPS = [
     
     # Apple Auth
     'allauth.socialaccount.providers.apple',
+    
+    # Twitter / X
+    # 'allauth.socialaccount.providers.twitter',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +87,21 @@ TEMPLATES = [
         },
     },
 ]
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+#     )
+# }
+
+# REST_AUTH = {
+#     'USE_JWT': True,
+# }
+
+# REST_AUTH = {
+#     'JWT_AUTH_COOKIE': 'my-app-auth',
+#     'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
+# }
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -151,7 +172,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "216d-182-191-128-1.ngrok-free.app"]
+
+CSRF_TRUSTED_ORIGINS = ['https://216d-182-191-128-1.ngrok-free.app']
 
 """Google"""
 # client_ID = 113799018764-slrgqr9j42vsd7lsltvbtrrd75c1sh2p.apps.googleusercontent.com
@@ -214,10 +237,10 @@ SOCIALACCOUNT_PROVIDERS = {
     "apple": {
         "APP": {
             # Your service identifier (Bundle ID).
-            "client_id": "com.makeyourplank",
+            "client_id": "com.makeyourplankapp",
             
             # The Key ID (visible in the "View Key Details" page).
-            "secret": "49H7SA6VU2",
+            "secret": "SXMUJLRJD3",
             
              # Member ID/App ID Prefix -- you can find it below your name
              # at the top right corner of the page, or it’s your App ID
@@ -227,14 +250,14 @@ SOCIALACCOUNT_PROVIDERS = {
             "settings": {
                 # The private key you downloaded when generating the key.
                 "certificate_key": """-----BEGIN PRIVATE KEY-----
-MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgRtLn+qnJaeFkcRQ8
-iQLWzAC0ymPJczSTPIHcDvX29XOgCgYIKoZIzj0DAQehRANCAAQr0A+v/B6xVcBB
-xxecNWUKQShgbQBoRGdnUiuAzQzK+IpQzEky0IV0vWLSJ1kE1gXykWbrMok++9xG
-UmjZVLvK
+MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg8Kprz8FVbLXcP8jT
+gDDFj4C9cur2sN/Fmn1ajR6QQYWgCgYIKoZIzj0DAQehRANCAARVLebLRtUYXVNO
+lNTeb2/Iv1IpZYAqx8UrjAYRCPwxllyMjXPUJWuNnxTN5Uuic0nFNYSgvMdpR03P
+rv0vCLKf
 -----END PRIVATE KEY-----"""
             },
             
-            'redirect_uri': 'http://domain.com/accounts/apple/login/callback/',
+            'redirect_uri': 'https://216d-182-191-128-1.ngrok-free.app/accounts/apple/login/',
         }
     },
 }
