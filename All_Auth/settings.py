@@ -172,9 +172,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "216d-182-191-128-1.ngrok-free.app"]
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://216d-182-191-128-1.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://cb54-119-155-3-23.ngrok-free.app']
 
 """Google"""
 # client_ID = 113799018764-slrgqr9j42vsd7lsltvbtrrd75c1sh2p.apps.googleusercontent.com
@@ -257,7 +257,7 @@ rv0vCLKf
 -----END PRIVATE KEY-----"""
             },
             
-            'redirect_uri': 'https://216d-182-191-128-1.ngrok-free.app/accounts/apple/login/',
+            'redirect_uri': ' https://cb54-119-155-3-23.ngrok-free.app/accounts/apple/login/callback/',
         }
     },
 }
